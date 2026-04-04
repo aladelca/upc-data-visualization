@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#f8fafc"/>
+  <text x="600" y="60" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#111827">Dashboard Accessibility and Layout</text>
+  <rect x="150" y="130" width="900" height="470" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="4"/>
+  <rect x="200" y="180" width="800" height="80" rx="14" fill="#0f172a"/>
+  <text x="600" y="230" text-anchor="middle" font-family="Arial" font-size="24" fill="#ffffff">Title + Context + Critical KPI</text>
+  <rect x="200" y="290" width="380" height="240" rx="18" fill="#dbeafe"/>
+  <rect x="620" y="290" width="380" height="240" rx="18" fill="#dcfce7"/>
+  <text x="390" y="420" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#0f172a">Primary Chart</text>
+  <text x="810" y="420" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#0f172a">Secondary Context</text>
+  <text x="600" y="640" text-anchor="middle" font-family="Arial" font-size="20" fill="#111827">High contrast, semantic color, readable labels, minimal clutter</text>
+</svg>

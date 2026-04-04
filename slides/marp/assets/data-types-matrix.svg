@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#f7fafc"/>
+  <text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#132238">Variable Types and Visual Consequences</text>
+  <rect x="120" y="150" width="1160" height="620" rx="24" fill="#ffffff" stroke="#d2dae6" stroke-width="4"/>
+  <line x1="120" y1="270" x2="1280" y2="270" stroke="#d2dae6" stroke-width="3"/>
+  <line x1="420" y1="150" x2="420" y2="770" stroke="#d2dae6" stroke-width="3"/>
+  <line x1="760" y1="150" x2="760" y2="770" stroke="#d2dae6" stroke-width="3"/>
+  <line x1="1030" y1="150" x2="1030" y2="770" stroke="#d2dae6" stroke-width="3"/>
+  <text x="270" y="225" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#132238">Type</text>
+  <text x="590" y="225" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#132238">Semantic Meaning</text>
+  <text x="895" y="225" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#132238">Common Charts</text>
+  <text x="1155" y="225" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#132238">Risk</text>
+  <text x="270" y="340" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#e36f2d">Nominal</text>
+  <text x="590" y="340" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Category without order</text>
+  <text x="895" y="340" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Bars, heatmaps, treemaps</text>
+  <text x="1155" y="340" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Fake ranking</text>
+  <text x="270" y="450" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#0f766e">Ordinal</text>
+  <text x="590" y="450" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Category with order</text>
+  <text x="895" y="450" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Sorted bars, slope, dot plot</text>
+  <text x="1155" y="450" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Order loss</text>
+  <text x="270" y="560" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#2563eb">Quantitative</text>
+  <text x="590" y="560" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Magnitude and distance</text>
+  <text x="895" y="560" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Histogram, scatter, line</text>
+  <text x="1155" y="560" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Bad scaling</text>
+  <text x="270" y="670" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#7c3aed">Temporal</text>
+  <text x="590" y="670" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Sequence and duration</text>
+  <text x="895" y="670" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Line, area, calendar view</text>
+  <text x="1155" y="670" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Mixed granularity</text>
+</svg>

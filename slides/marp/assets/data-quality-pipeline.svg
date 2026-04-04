@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+  <rect width="1200" height="650" fill="#f9fbfd"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#183153">Data Quality Pipeline</text>
+  <rect x="60" y="230" width="180" height="120" rx="18" fill="#d9ecff"/>
+  <rect x="290" y="230" width="180" height="120" rx="18" fill="#c7f0d8"/>
+  <rect x="520" y="230" width="180" height="120" rx="18" fill="#ffe7b3"/>
+  <rect x="750" y="230" width="180" height="120" rx="18" fill="#ffd7cf"/>
+  <rect x="980" y="230" width="160" height="120" rx="18" fill="#e8ddff"/>
+  <text x="150" y="285" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#183153">Profile</text>
+  <text x="150" y="320" text-anchor="middle" font-family="Arial" font-size="18" fill="#183153">Counts, nulls, ranges</text>
+  <text x="380" y="285" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#183153">Detect</text>
+  <text x="380" y="320" text-anchor="middle" font-family="Arial" font-size="18" fill="#183153">Types, duplicates, drift</text>
+  <text x="610" y="285" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#183153">Decide</text>
+  <text x="610" y="320" text-anchor="middle" font-family="Arial" font-size="18" fill="#183153">Fix, exclude, impute</text>
+  <text x="840" y="285" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#183153">Document</text>
+  <text x="840" y="320" text-anchor="middle" font-family="Arial" font-size="18" fill="#183153">Log every intervention</text>
+  <text x="1060" y="285" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#183153">Validate</text>
+  <text x="1060" y="320" text-anchor="middle" font-family="Arial" font-size="18" fill="#183153">Check totals and meaning</text>
+  <line x1="240" y1="290" x2="290" y2="290" stroke="#183153" stroke-width="4"/>
+  <line x1="470" y1="290" x2="520" y2="290" stroke="#183153" stroke-width="4"/>
+  <line x1="700" y1="290" x2="750" y2="290" stroke="#183153" stroke-width="4"/>
+  <line x1="930" y1="290" x2="980" y2="290" stroke="#183153" stroke-width="4"/>
+</svg>

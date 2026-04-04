@@ -1,0 +1,831 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+{
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\section{Trabajo Final del Curso}\label{trabajo-final-del-curso}
+
+Curso: \texttt{Data\ Visualization}\\
+Herramientas principales: \texttt{Tableau} y \texttt{Python} con
+notebooks
+
+\subsection{1. Propósito del trabajo
+final}\label{1-propuxf3sito-del-trabajo-final}
+
+El trabajo final del curso consiste en desarrollar un producto integral
+de visualización de datos orientado a la toma de decisiones. El proyecto
+debe mostrar que el equipo puede recorrer todo el flujo de trabajo visto
+en clase: comprender un problema, evaluar una fuente de datos,
+perfilarla, limpiarla, modelarla, analizarla, diseñar visualizaciones
+adecuadas, construir un dashboard funcional y defender técnicamente sus
+decisiones.
+
+El objetivo no es solo presentar gráficos atractivos. El objetivo es
+construir una solución analítica sólida, reproducible y bien
+argumentada.
+
+\subsection{2. Modalidad de trabajo}\label{2-modalidad-de-trabajo}
+
+\begin{itemize}
+\tightlist
+\item
+  Equipos de \texttt{2} a \texttt{3} estudiantes.
+\item
+  Si el docente lo aprueba, puede adaptarse a modalidad individual.
+\item
+  El equipo debe trabajar un solo tema durante todo el ciclo.
+\item
+  Cada entrega parcial debe reutilizar y mejorar la entrega anterior.
+\end{itemize}
+
+\subsection{3. Producto final esperado}\label{3-producto-final-esperado}
+
+Al final del curso, cada equipo deberá entregar:
+
+\begin{itemize}
+\tightlist
+\item
+  Un \texttt{dashboard\ final} en \texttt{Tableau}.
+\item
+  Una \texttt{historia\ visual} breve o secuencia narrativa equivalente.
+\item
+  Un conjunto de \texttt{notebooks} en \texttt{Python} con el pipeline
+  del proyecto.
+\item
+  Los archivos de datos preparados para Tableau.
+\item
+  Una bitácora técnica con las decisiones de preparación, validación y
+  modelado.
+\item
+  Una presentación final para la defensa del proyecto.
+\end{itemize}
+
+\subsection{4. Qué debe resolver el
+proyecto}\label{4-quuxe9-debe-resolver-el-proyecto}
+
+El proyecto debe responder una pregunta analítica real y relevante. Esa
+pregunta debe estar vinculada con una decisión, necesidad de monitoreo,
+evaluación de desempeño, identificación de patrones o comprensión de un
+fenómeno.
+
+El equipo debe poder responder con claridad:
+
+\begin{itemize}
+\tightlist
+\item
+  ¿Cuál es el problema que se quiere analizar?
+\item
+  ¿Quién usará el dashboard?
+\item
+  ¿Qué decisión o acción podría apoyarse con este análisis?
+\item
+  ¿Por qué el dataset elegido permite responder esa pregunta?
+\end{itemize}
+
+\subsection{5. Requisitos del dataset}\label{5-requisitos-del-dataset}
+
+El dataset debe cumplir, idealmente, con las siguientes condiciones:
+
+\begin{itemize}
+\tightlist
+\item
+  Tener al menos \texttt{2,000} registros.
+\item
+  Tener al menos \texttt{10} variables útiles.
+\item
+  Incluir al menos \texttt{1} variable temporal.
+\item
+  Incluir al menos \texttt{1} variable categórica relevante.
+\item
+  Incluir al menos \texttt{1} variable que permita segmentar.
+\item
+  Incluir al menos \texttt{4} variables numéricas.
+\item
+  De preferencia, incluir una dimensión geográfica.
+\item
+  Si se quiere aplicar \texttt{PCA} o \texttt{t-SNE}, contar con
+  suficientes variables numéricas o una representación adecuada.
+\end{itemize}
+
+Además:
+
+\begin{itemize}
+\tightlist
+\item
+  Debe ser una fuente real, pública, institucional o verificable.
+\item
+  Debe tener trazabilidad: origen, periodo, cobertura y limitaciones.
+\item
+  No debe ser un dataset trivial.
+\item
+  No debe ser un dataset tan limpio que impida trabajar perfilado y
+  limpieza.
+\end{itemize}
+
+\subsection{6. Cobertura mínima obligatoria del
+curso}\label{6-cobertura-muxednima-obligatoria-del-curso}
+
+El trabajo final debe evidenciar todos los siguientes componentes:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Definición del problema y del usuario objetivo.
+\item
+  Perfilado del dato y comprensión de la granularidad.
+\item
+  Limpieza y preparación.
+\item
+  Modelado analítico o estructuración de la fuente.
+\item
+  Análisis exploratorio.
+\item
+  Selección y justificación de gráficos.
+\item
+  Segmentación e interpretación.
+\item
+  Construcción de métricas o cálculos analíticos.
+\item
+  Storytelling técnico.
+\item
+  Revisión de accesibilidad y diseño visual.
+\item
+  Visualización longitudinal.
+\item
+  Visualización transversal o comparativa.
+\item
+  Componente avanzado.
+\item
+  Construcción del dashboard final.
+\item
+  Defensa metodológica y visual.
+\end{enumerate}
+
+\subsection{7. Configuración mínima del producto
+final}\label{7-configuraciuxf3n-muxednima-del-producto-final}
+
+Como mínimo, el proyecto final debe contener:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{1} problema analítico claramente formulado.
+\item
+  \texttt{1} usuario objetivo principal.
+\item
+  \texttt{1} dataset principal validado.
+\item
+  \texttt{1} pipeline reproducible en \texttt{Python}.
+\item
+  \texttt{1} workbook en \texttt{Tableau} con al menos \texttt{8} hojas
+  analíticas útiles.
+\item
+  \texttt{1} dashboard final con al menos \texttt{3} bloques
+  funcionales:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    contexto y KPIs
+  \item
+    exploración comparativa o segmentada
+  \item
+    módulo temporal, comparativo o avanzado
+  \end{itemize}
+\item
+  \texttt{1} historia visual de \texttt{3} a \texttt{5} pantallas o una
+  secuencia equivalente.
+\item
+  \texttt{1} vista temporal sólida.
+\item
+  \texttt{1} vista transversal sólida.
+\item
+  \texttt{1} componente avanzado integrado o anexado con justificación
+  metodológica.
+\item
+  \texttt{1} documento breve de QA con validación técnica, limitaciones
+  y decisiones de diseño.
+\end{itemize}
+
+\subsection{8. Entregas parciales}\label{8-entregas-parciales}
+
+El trabajo final se desarrollará de manera progresiva mediante entregas
+parciales.
+
+\subsubsection{Entrega 1. Propuesta del
+proyecto}\label{entrega-1-propuesta-del-proyecto}
+
+Semana sugerida: \texttt{2}
+
+Debe incluir:
+
+\begin{itemize}
+\tightlist
+\item
+  tema del proyecto
+\item
+  pregunta analítica principal
+\item
+  usuario objetivo
+\item
+  fuente de datos propuesta
+\item
+  hipótesis iniciales
+\item
+  valor potencial del proyecto
+\end{itemize}
+
+Entregables:
+
+\begin{itemize}
+\tightlist
+\item
+  documento breve en \texttt{PDF}
+\item
+  enlace o archivo del dataset
+\item
+  ficha resumen del proyecto
+\end{itemize}
+
+Criterios mínimos:
+
+\begin{itemize}
+\tightlist
+\item
+  la pregunta analítica no es trivial
+\item
+  el usuario objetivo está claramente definido
+\item
+  el dataset permite temporalidad, segmentación y comparación
+\item
+  se explican riesgos iniciales de calidad o cobertura
+\end{itemize}
+
+\subsubsection{Entrega 2. Perfilado, diccionario y limpieza
+inicial}\label{entrega-2-perfilado-diccionario-y-limpieza-inicial}
+
+Semana sugerida: \texttt{4}
+
+Debe incluir:
+
+\begin{itemize}
+\tightlist
+\item
+  perfilado del dataset
+\item
+  unidad de análisis
+\item
+  granularidad
+\item
+  diccionario de datos
+\item
+  principales problemas de calidad
+\item
+  reglas de limpieza
+\item
+  bitácora inicial
+\end{itemize}
+
+Entregables:
+
+\begin{itemize}
+\tightlist
+\item
+  notebook de perfilado y limpieza
+\item
+  tabla de perfilado
+\item
+  dataset limpio preliminar
+\item
+  bitácora de transformaciones
+\end{itemize}
+
+Criterios mínimos:
+
+\begin{itemize}
+\tightlist
+\item
+  se reportan nulos, cardinalidad, duplicados y campos críticos
+\item
+  se justifican las decisiones de limpieza
+\item
+  el dataset limpio puede conectarse a Tableau sin ambigüedad
+\item
+  se diferencia claramente la fuente original de la fuente transformada
+\end{itemize}
+
+\subsubsection{Entrega 3. Exploración, chart selection e insights
+iniciales}\label{entrega-3-exploraciuxf3n-chart-selection-e-insights-iniciales}
+
+Semana sugerida: \texttt{6}
+
+Debe incluir:
+
+\begin{itemize}
+\tightlist
+\item
+  primeras visualizaciones exploratorias
+\item
+  comparación, distribución, relación y tendencia
+\item
+  criterios de selección de gráficos
+\item
+  primeros insights
+\end{itemize}
+
+Entregables:
+
+\begin{itemize}
+\tightlist
+\item
+  notebook exploratorio
+\item
+  workbook preliminar en Tableau
+\item
+  documento corto con \texttt{3} a \texttt{5} insights
+\end{itemize}
+
+Criterios mínimos:
+
+\begin{itemize}
+\tightlist
+\item
+  se muestran distintas familias de gráficos
+\item
+  cada gráfico tiene una justificación técnica breve
+\item
+  al menos \texttt{2} opciones visuales fueron descartadas y explicadas
+\item
+  los insights están redactados con lenguaje analítico
+\end{itemize}
+
+\subsubsection{Entrega 4. Modelado, métricas y dashboard
+alpha}\label{entrega-4-modelado-muxe9tricas-y-dashboard-alpha}
+
+Semana sugerida: \texttt{8}
+
+Debe incluir:
+
+\begin{itemize}
+\tightlist
+\item
+  estructura analítica o relacional
+\item
+  validación de joins o relationships
+\item
+  métricas derivadas
+\item
+  segmentación
+\item
+  parámetros, filtros o lógica analítica
+\item
+  primera versión funcional del dashboard
+\end{itemize}
+
+Entregables:
+
+\begin{itemize}
+\tightlist
+\item
+  notebook de modelado y cálculos
+\item
+  fuentes analíticas para Tableau
+\item
+  dashboard alpha
+\end{itemize}
+
+Criterios mínimos:
+
+\begin{itemize}
+\tightlist
+\item
+  la estructura relacional está validada
+\item
+  las métricas responden a la pregunta del proyecto
+\item
+  el dashboard alpha ya tiene flujo de lectura
+\item
+  existe al menos una vista segmentada útil
+\end{itemize}
+
+\subsubsection{Entrega 5. Storytelling, accesibilidad y módulo
+temporal/comparativo}\label{entrega-5-storytelling-accesibilidad-y-muxf3dulo-temporalcomparativo}
+
+Semana sugerida: \texttt{10}
+
+Debe incluir:
+
+\begin{itemize}
+\tightlist
+\item
+  rediseño narrativo del dashboard
+\item
+  mejora de accesibilidad
+\item
+  vista longitudinal sólida
+\item
+  vista transversal sólida
+\end{itemize}
+
+Entregables:
+
+\begin{itemize}
+\tightlist
+\item
+  dashboard revisado
+\item
+  historia visual breve
+\item
+  checklist de accesibilidad
+\item
+  reflexión metodológica corta
+\end{itemize}
+
+Criterios mínimos:
+
+\begin{itemize}
+\tightlist
+\item
+  mejora visible respecto a la versión alpha
+\item
+  títulos, color, contraste y jerarquía están mejor resueltos
+\item
+  la vista temporal y la vista transversal son defendibles
+\item
+  la historia visual comunica un mensaje, no solo muestra gráficos
+\end{itemize}
+
+\subsubsection{Entrega 6. Componente avanzado y dashboard
+beta}\label{entrega-6-componente-avanzado-y-dashboard-beta}
+
+Semana sugerida: \texttt{12}
+
+Debe incluir:
+
+\begin{itemize}
+\tightlist
+\item
+  aplicación de \texttt{PCA}, \texttt{t-SNE} o técnica equivalente
+  aprobada
+\item
+  explicación metodológica
+\item
+  integración del resultado al análisis
+\item
+  versión beta del dashboard
+\end{itemize}
+
+Entregables:
+
+\begin{itemize}
+\tightlist
+\item
+  notebook avanzado
+\item
+  exportables para Tableau
+\item
+  vista avanzada integrada o anexa
+\item
+  dashboard beta
+\end{itemize}
+
+Criterios mínimos:
+
+\begin{itemize}
+\tightlist
+\item
+  la técnica está correctamente explicada
+\item
+  se documentan variables, parámetros y limitaciones
+\item
+  el resultado aporta valor analítico al caso
+\item
+  el dashboard beta ya está listo para revisión final
+\end{itemize}
+
+\subsubsection{Entrega 7. Entrega final y
+defensa}\label{entrega-7-entrega-final-y-defensa}
+
+Semana sugerida: \texttt{14}
+
+Debe incluir:
+
+\begin{itemize}
+\tightlist
+\item
+  dashboard final
+\item
+  historia visual o secuencia narrativa
+\item
+  QA técnico
+\item
+  defensa integral del pipeline
+\end{itemize}
+
+Entregables:
+
+\begin{itemize}
+\tightlist
+\item
+  dashboard final en Tableau
+\item
+  carpeta final de notebooks
+\item
+  base final preparada
+\item
+  presentación de defensa
+\item
+  resumen ejecutivo
+\end{itemize}
+
+Criterios mínimos:
+
+\begin{itemize}
+\tightlist
+\item
+  el dashboard responde claramente la pregunta principal
+\item
+  el pipeline técnico es reproducible
+\item
+  el equipo demuestra cobertura de todo lo visto en clase
+\item
+  la defensa muestra dominio de supuestos, límites y decisiones
+\end{itemize}
+
+\subsection{9. Cronograma resumido}\label{9-cronograma-resumido}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Semana & Tema del curso & Hito del proyecto \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Introducción y ecosistema & Exploración de temas \\
+2 & Perfilado y granularidad & Entrega \texttt{1} \\
+3 & Limpieza y preparación & Avance técnico \\
+4 & Modelado y fuentes & Entrega \texttt{2} \\
+5 & Visualización exploratoria & Prototipos \\
+6 & Segmentación e insights & Entrega \texttt{3} \\
+7 & Cálculos analíticos & Construcción de métricas \\
+8 & Storytelling técnico & Entrega \texttt{4} \\
+9 & Accesibilidad y diseño & Revisión visual \\
+10 & Series temporales & Entrega \texttt{5} \\
+11 & Comparación transversal & Integración comparativa \\
+12 & \texttt{PCA} y \texttt{t-SNE} & Entrega \texttt{6} \\
+13 & Dashboard engineering y QA & Cierre técnico \\
+14 & Capstone y defensa & Entrega \texttt{7} \\
+\end{longtable}
+
+\subsection{10. Criterios globales de
+evaluación}\label{10-criterios-globales-de-evaluaciuxf3n}
+
+La evaluación del trabajo final considerará, como mínimo, los siguientes
+aspectos:
+
+\begin{itemize}
+\tightlist
+\item
+  definición del problema y claridad del objetivo
+\item
+  calidad, trazabilidad y perfilado del dato
+\item
+  limpieza y preparación reproducible
+\item
+  modelado y consistencia técnica
+\item
+  rigor analítico e insights
+\item
+  calidad visual y accesibilidad
+\item
+  storytelling y comunicación
+\item
+  componente avanzado
+\item
+  defensa final
+\end{itemize}
+
+\subsection{11. Formato de entrega
+sugerido}\label{11-formato-de-entrega-sugerido}
+
+Se recomienda organizar la entrega final de esta forma:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{proyecto{-}final/}
+\NormalTok{  data/}
+\NormalTok{  notebooks/}
+\NormalTok{  outputs/}
+\NormalTok{  tableau/}
+\NormalTok{  docs/}
+\NormalTok{  README.md}
+\end{Highlighting}
+\end{Shaded}
+
+Contenido esperado:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{data/}: fuentes originales y fuentes limpias
+\item
+  \texttt{notebooks/}: notebooks de trabajo
+\item
+  \texttt{outputs/}: exportables para Tableau
+\item
+  \texttt{tableau/}: workbook o enlace publicado
+\item
+  \texttt{docs/}: diccionario, bitácora, QA, presentación y resumen
+  ejecutivo
+\item
+  \texttt{README.md}: explicación general del proyecto
+\end{itemize}
+
+\subsection{12. Relación con los laboratorios del
+curso}\label{12-relaciuxf3n-con-los-laboratorios-del-curso}
+
+Cada entrega parcial debe apoyarse en los laboratorios y notebooks
+semanales del curso. La idea es que el trabajo final no se construya al
+final del semestre como un esfuerzo aislado, sino como una acumulación
+ordenada de evidencia técnica y analítica.
+
+Se recomienda usar como base:
+
+\begin{itemize}
+\tightlist
+\item
+  perfilado y granularidad
+\item
+  limpieza y preparación
+\item
+  modelado de fuentes
+\item
+  chart selection
+\item
+  segmentación e insights
+\item
+  cálculos analíticos
+\item
+  storytelling y anotación
+\item
+  accesibilidad y diseño
+\item
+  análisis temporal
+\item
+  comparación transversal
+\item
+  \texttt{PCA} o \texttt{t-SNE}
+\item
+  dashboard engineering
+\item
+  QA final
+\end{itemize}
+
+\subsection{13. Recomendaciones
+importantes}\label{13-recomendaciones-importantes}
+
+\begin{itemize}
+\tightlist
+\item
+  Elijan una pregunta concreta, no un tema demasiado amplio.
+\item
+  No construyan el dashboard antes de entender la granularidad del dato.
+\item
+  No usen gráficos por variedad visual; úsenlos porque responden mejor a
+  una pregunta.
+\item
+  No oculten problemas de calidad; documentarlos también es parte del
+  trabajo.
+\item
+  No usen el componente avanzado como adorno técnico; debe aportar al
+  análisis.
+\item
+  Cuiden la legibilidad, el contraste y el orden visual del dashboard.
+\item
+  Ensayen la defensa con foco en decisiones, no solo en resultados.
+\end{itemize}
+
+\subsection{14. Qué se espera de una buena entrega
+final}\label{14-quuxe9-se-espera-de-una-buena-entrega-final}
+
+Una buena entrega final:
+
+\begin{itemize}
+\tightlist
+\item
+  responde una pregunta real
+\item
+  usa datos con trazabilidad
+\item
+  documenta su pipeline
+\item
+  construye insights defendibles
+\item
+  comunica con claridad
+\item
+  y puede sostener técnicamente lo que afirma
+\end{itemize}
+
+\end{document}

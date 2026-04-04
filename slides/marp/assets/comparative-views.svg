@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#fbfdff"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#111827">Comparative Views Toolkit</text>
+  <rect x="120" y="160" width="250" height="180" rx="18" fill="#dbeafe"/>
+  <rect x="475" y="160" width="250" height="180" rx="18" fill="#dcfce7"/>
+  <rect x="830" y="160" width="250" height="180" rx="18" fill="#fef3c7"/>
+  <rect x="300" y="400" width="250" height="180" rx="18" fill="#fee2e2"/>
+  <rect x="650" y="400" width="250" height="180" rx="18" fill="#e9d5ff"/>
+  <text x="245" y="255" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#111827">Ranked Bars</text>
+  <text x="600" y="255" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#111827">Heatmaps</text>
+  <text x="955" y="255" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#111827">Maps</text>
+  <text x="425" y="495" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#111827">Treemaps</text>
+  <text x="775" y="495" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#111827">Small Multiples</text>
+</svg>

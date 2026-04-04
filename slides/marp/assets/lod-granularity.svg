@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#f7fafc"/>
+  <text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#132238">LOD and Granularity Control</text>
+  <rect x="140" y="180" width="1120" height="540" rx="24" fill="#ffffff" stroke="#d2dae6" stroke-width="4"/>
+  <line x1="513" y1="180" x2="513" y2="720" stroke="#d2dae6" stroke-width="3"/>
+  <line x1="886" y1="180" x2="886" y2="720" stroke="#d2dae6" stroke-width="3"/>
+  <text x="325" y="250" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#132238">FIXED</text>
+  <text x="700" y="250" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#132238">INCLUDE</text>
+  <text x="1073" y="250" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#132238">EXCLUDE</text>
+  <text x="325" y="360" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Locks a chosen granularity</text>
+  <text x="700" y="360" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Adds detail to current view</text>
+  <text x="1073" y="360" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Removes detail from current view</text>
+  <text x="325" y="470" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">{ FIXED [Region] : SUM([Sales]) }</text>
+  <text x="700" y="470" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">{ INCLUDE [Category] : AVG([Profit]) }</text>
+  <text x="1073" y="470" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">{ EXCLUDE [Subcat] : SUM([Sales]) }</text>
+  <text x="325" y="590" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Good for benchmarks</text>
+  <text x="700" y="590" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Good for local detail</text>
+  <text x="1073" y="590" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Good for roll-up comparisons</text>
+</svg>

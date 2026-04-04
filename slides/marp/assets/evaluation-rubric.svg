@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#fbfcfe"/>
+  <text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#132238">Capstone Evaluation Rubric</text>
+  <rect x="150" y="150" width="1100" height="620" rx="24" fill="#ffffff" stroke="#d2dae6" stroke-width="4"/>
+  <line x1="150" y1="260" x2="1250" y2="260" stroke="#d2dae6" stroke-width="3"/>
+  <line x1="620" y1="150" x2="620" y2="770" stroke="#d2dae6" stroke-width="3"/>
+  <text x="385" y="220" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#132238">Criterion</text>
+  <text x="935" y="220" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#132238">What strong performance looks like</text>
+  <text x="385" y="340" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Data quality</text>
+  <text x="935" y="340" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Cleaning is justified, documented, and non-destructive</text>
+  <text x="385" y="450" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Analytical validity</text>
+  <text x="935" y="450" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Metrics, joins, and logic are consistent with the question</text>
+  <text x="385" y="560" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Visual clarity</text>
+  <text x="935" y="560" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Encoding and layout guide interpretation with low friction</text>
+  <text x="385" y="670" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Narrative value</text>
+  <text x="935" y="670" text-anchor="middle" font-family="Arial" font-size="20" fill="#132238">Insights are defensible, prioritized, and actionable</text>
+</svg>

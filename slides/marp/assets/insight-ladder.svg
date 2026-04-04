@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#fbfcfe"/>
+  <text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#132238">Insight Ladder</text>
+  <rect x="180" y="650" width="1040" height="90" rx="18" fill="#dbeafe"/>
+  <rect x="260" y="520" width="880" height="90" rx="18" fill="#c7f0d8"/>
+  <rect x="340" y="390" width="720" height="90" rx="18" fill="#fef3c7"/>
+  <rect x="420" y="260" width="560" height="90" rx="18" fill="#fee2e2"/>
+  <rect x="500" y="130" width="400" height="90" rx="18" fill="#e9d5ff"/>
+  <text x="700" y="705" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Observation</text>
+  <text x="700" y="575" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Pattern</text>
+  <text x="700" y="445" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Comparison</text>
+  <text x="700" y="315" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Interpretation</text>
+  <text x="700" y="185" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Actionable Insight</text>
+</svg>

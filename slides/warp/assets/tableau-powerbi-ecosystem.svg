@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#f7f8fc"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#1f2a44">Visualization Tooling Ecosystem</text>
+  <rect x="90" y="180" width="300" height="320" rx="24" fill="#ffffff" stroke="#e36f2d" stroke-width="4"/>
+  <text x="240" y="235" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#e36f2d">Tableau</text>
+  <text x="240" y="290" text-anchor="middle" font-family="Arial" font-size="20" fill="#1f2a44">Fast visual exploration</text>
+  <text x="240" y="325" text-anchor="middle" font-family="Arial" font-size="20" fill="#1f2a44">Flexible dashboard design</text>
+  <text x="240" y="360" text-anchor="middle" font-family="Arial" font-size="20" fill="#1f2a44">Strong storytelling layer</text>
+  <text x="240" y="395" text-anchor="middle" font-family="Arial" font-size="20" fill="#1f2a44">Low friction prototyping</text>
+  <rect x="450" y="140" width="300" height="400" rx="24" fill="#14213d"/>
+  <text x="600" y="210" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#ffffff">Course Core</text>
+  <text x="600" y="280" text-anchor="middle" font-family="Arial" font-size="24" fill="#ffffff">Profile data</text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial" font-size="24" fill="#ffffff">Clean and model</text>
+  <text x="600" y="370" text-anchor="middle" font-family="Arial" font-size="24" fill="#ffffff">Explore visually</text>
+  <text x="600" y="415" text-anchor="middle" font-family="Arial" font-size="24" fill="#ffffff">Explain with dashboards</text>
+  <text x="600" y="460" text-anchor="middle" font-family="Arial" font-size="24" fill="#ffffff">Publish and defend</text>
+  <rect x="810" y="180" width="300" height="320" rx="24" fill="#ffffff" stroke="#f2c94c" stroke-width="4"/>
+  <text x="960" y="235" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#8a6b00">Power BI</text>
+  <text x="960" y="290" text-anchor="middle" font-family="Arial" font-size="20" fill="#1f2a44">Business reporting strength</text>
+  <text x="960" y="325" text-anchor="middle" font-family="Arial" font-size="20" fill="#1f2a44">Model driven workflow</text>
+  <text x="960" y="360" text-anchor="middle" font-family="Arial" font-size="20" fill="#1f2a44">Tight Microsoft integration</text>
+  <text x="960" y="395" text-anchor="middle" font-family="Arial" font-size="20" fill="#1f2a44">Comparative reference only</text>
+  <line x1="390" y1="340" x2="450" y2="340" stroke="#1f2a44" stroke-width="4"/>
+  <line x1="750" y1="340" x2="810" y2="340" stroke="#1f2a44" stroke-width="4"/>
+</svg>

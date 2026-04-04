@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#fbfcfe"/>
+  <text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#132238">Time Series Decomposition</text>
+  <rect x="160" y="150" width="1080" height="620" rx="24" fill="#ffffff" stroke="#d2dae6" stroke-width="4"/>
+  <line x1="160" y1="310" x2="1240" y2="310" stroke="#d2dae6" stroke-width="3"/>
+  <line x1="160" y1="470" x2="1240" y2="470" stroke="#d2dae6" stroke-width="3"/>
+  <line x1="160" y1="630" x2="1240" y2="630" stroke="#d2dae6" stroke-width="3"/>
+  <text x="250" y="235" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Observed</text>
+  <text x="250" y="395" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Trend</text>
+  <text x="250" y="555" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Seasonality</text>
+  <text x="250" y="715" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Residual</text>
+  <polyline points="340,250 450,220 560,230 670,180 780,165 890,190 1000,150 1110,145" fill="none" stroke="#2563eb" stroke-width="5"/>
+  <polyline points="340,410 450,395 560,380 670,350 780,330 890,300 1000,270 1110,250" fill="none" stroke="#ef4444" stroke-width="5"/>
+  <polyline points="340,560 420,535 500,560 580,585 660,560 740,535 820,560 900,585 980,560 1060,535 1140,560" fill="none" stroke="#0f766e" stroke-width="5"/>
+  <polyline points="340,705 410,690 480,720 550,700 620,725 690,695 760,710 830,690 900,720 970,700 1040,725 1110,695" fill="none" stroke="#7c3aed" stroke-width="5"/>
+</svg>

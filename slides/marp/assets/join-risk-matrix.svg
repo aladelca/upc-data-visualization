@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#f7fafc"/>
+  <text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#132238">Join Risk Matrix</text>
+  <rect x="170" y="150" width="1060" height="620" rx="24" fill="#ffffff" stroke="#d2dae6" stroke-width="4"/>
+  <line x1="170" y1="310" x2="1230" y2="310" stroke="#d2dae6" stroke-width="3"/>
+  <line x1="460" y1="150" x2="460" y2="770" stroke="#d2dae6" stroke-width="3"/>
+  <line x1="820" y1="150" x2="820" y2="770" stroke="#d2dae6" stroke-width="3"/>
+  <text x="315" y="245" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#132238">Cardinality</text>
+  <text x="640" y="245" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#132238">Typical effect</text>
+  <text x="1025" y="245" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#132238">Risk</text>
+  <text x="315" y="390" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#0f766e">1 : 1</text>
+  <text x="640" y="390" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Stable merge if keys are valid</text>
+  <text x="1025" y="390" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Low</text>
+  <text x="315" y="510" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#2563eb">1 : many</text>
+  <text x="640" y="510" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Fact expansion is expected</text>
+  <text x="1025" y="510" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Medium</text>
+  <text x="315" y="630" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#dc2626">many : many</text>
+  <text x="640" y="630" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Silent duplication and inflated totals</text>
+  <text x="1025" y="630" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">High</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#f9fbfd"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#111827">Dashboard Engineering Stack</text>
+  <rect x="180" y="140" width="840" height="420" rx="26" fill="#ffffff" stroke="#cbd5e1" stroke-width="4"/>
+  <rect x="240" y="200" width="720" height="70" rx="12" fill="#0f172a"/>
+  <rect x="240" y="300" width="220" height="180" rx="12" fill="#dbeafe"/>
+  <rect x="490" y="300" width="220" height="180" rx="12" fill="#dcfce7"/>
+  <rect x="740" y="300" width="220" height="180" rx="12" fill="#fef3c7"/>
+  <text x="600" y="245" text-anchor="middle" font-family="Arial" font-size="22" fill="#ffffff">Overview + global controls</text>
+  <text x="350" y="395" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#111827">Primary view</text>
+  <text x="600" y="395" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#111827">Context view</text>
+  <text x="850" y="395" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#111827">Detail on demand</text>
+</svg>

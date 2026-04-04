@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#f8fbfd"/>
+  <text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#132238">Cleaning Decision Tree</text>
+  <rect x="550" y="120" width="300" height="100" rx="20" fill="#132238"/>
+  <text x="700" y="180" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#ffffff">Data problem detected</text>
+  <rect x="150" y="320" width="240" height="100" rx="18" fill="#dbeafe"/>
+  <rect x="440" y="320" width="240" height="100" rx="18" fill="#dcfce7"/>
+  <rect x="730" y="320" width="240" height="100" rx="18" fill="#fef3c7"/>
+  <rect x="1020" y="320" width="240" height="100" rx="18" fill="#fee2e2"/>
+  <text x="270" y="380" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Fix</text>
+  <text x="560" y="380" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Exclude</text>
+  <text x="850" y="380" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Impute</text>
+  <text x="1140" y="380" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#132238">Flag</text>
+  <line x1="700" y1="220" x2="270" y2="320" stroke="#132238" stroke-width="4"/>
+  <line x1="700" y1="220" x2="560" y2="320" stroke="#132238" stroke-width="4"/>
+  <line x1="700" y1="220" x2="850" y2="320" stroke="#132238" stroke-width="4"/>
+  <line x1="700" y1="220" x2="1140" y2="320" stroke="#132238" stroke-width="4"/>
+  <rect x="160" y="560" width="1080" height="180" rx="22" fill="#ffffff" stroke="#d2dae6" stroke-width="4"/>
+  <text x="700" y="615" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#132238">Principle: preserve meaning before preserving convenience</text>
+  <text x="700" y="665" text-anchor="middle" font-family="Arial" font-size="22" fill="#132238">Every intervention must state the rule, the rationale, and the analytical consequence</text>
+</svg>

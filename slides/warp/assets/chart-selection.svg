@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#f8fbff"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#0f172a">Chart Selection Matrix</text>
+  <rect x="80" y="140" width="250" height="220" rx="22" fill="#dbeafe"/>
+  <rect x="365" y="140" width="250" height="220" rx="22" fill="#dcfce7"/>
+  <rect x="650" y="140" width="250" height="220" rx="22" fill="#fef3c7"/>
+  <rect x="935" y="140" width="180" height="220" rx="22" fill="#fee2e2"/>
+  <text x="205" y="205" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#0f172a">Compare</text>
+  <text x="205" y="245" text-anchor="middle" font-family="Arial" font-size="18" fill="#0f172a">Bars, dot plots, sorted ranks</text>
+  <text x="490" y="205" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#0f172a">Distribute</text>
+  <text x="490" y="245" text-anchor="middle" font-family="Arial" font-size="18" fill="#0f172a">Histogram, boxplot, density</text>
+  <text x="775" y="205" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#0f172a">Relate</text>
+  <text x="775" y="245" text-anchor="middle" font-family="Arial" font-size="18" fill="#0f172a">Scatter, heatmap, matrix</text>
+  <text x="1025" y="205" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#0f172a">Time</text>
+  <text x="1025" y="245" text-anchor="middle" font-family="Arial" font-size="18" fill="#0f172a">Line, area, small multiples</text>
+  <text x="600" y="520" text-anchor="middle" font-family="Arial" font-size="26" font-weight="700" fill="#0f172a">Perceptual ranking: position > length > angle > area > color value</text>
+  <rect x="220" y="560" width="760" height="70" rx="20" fill="#0f172a"/>
+  <text x="600" y="605" text-anchor="middle" font-family="Arial" font-size="22" fill="#ffffff">Select by analytical question, not by software default</text>
+</svg>

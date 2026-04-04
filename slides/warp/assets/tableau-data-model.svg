@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#f8fafc"/>
+  <text x="600" y="65" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#1f2937">Analytical Model for Visualization</text>
+  <rect x="450" y="220" width="300" height="180" rx="24" fill="#0f766e"/>
+  <text x="600" y="285" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#ffffff">Fact Table</text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial" font-size="20" fill="#ffffff">Transactions / Events</text>
+  <text x="600" y="355" text-anchor="middle" font-family="Arial" font-size="20" fill="#ffffff">Measures + foreign keys</text>
+  <rect x="110" y="120" width="240" height="120" rx="20" fill="#dbeafe"/>
+  <rect x="850" y="120" width="240" height="120" rx="20" fill="#dbeafe"/>
+  <rect x="110" y="460" width="240" height="120" rx="20" fill="#dbeafe"/>
+  <rect x="850" y="460" width="240" height="120" rx="20" fill="#dbeafe"/>
+  <text x="230" y="185" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#1f2937">Date</text>
+  <text x="970" y="185" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#1f2937">Product</text>
+  <text x="230" y="525" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#1f2937">Customer</text>
+  <text x="970" y="525" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#1f2937">Region</text>
+  <line x1="350" y1="220" x2="450" y2="270" stroke="#1f2937" stroke-width="4"/>
+  <line x1="850" y1="220" x2="750" y2="270" stroke="#1f2937" stroke-width="4"/>
+  <line x1="350" y1="510" x2="450" y2="350" stroke="#1f2937" stroke-width="4"/>
+  <line x1="850" y1="510" x2="750" y2="350" stroke="#1f2937" stroke-width="4"/>
+</svg>

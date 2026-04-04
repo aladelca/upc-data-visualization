@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#fafcff"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#0f172a">Time Series Reading Frame</text>
+  <line x1="110" y1="550" x2="1080" y2="550" stroke="#0f172a" stroke-width="4"/>
+  <line x1="110" y1="550" x2="110" y2="150" stroke="#0f172a" stroke-width="4"/>
+  <polyline points="140,480 220,430 300,420 380,360 460,300 540,280 620,330 700,290 780,260 860,250 940,210 1020,190" fill="none" stroke="#2563eb" stroke-width="6"/>
+  <polyline points="140,500 220,470 300,450 380,420 460,380 540,360 620,340 700,320 780,300 860,280 940,250 1020,225" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="10 8"/>
+  <text x="920" y="170" font-family="Arial" font-size="20" fill="#2563eb">Observed signal</text>
+  <text x="920" y="205" font-family="Arial" font-size="20" fill="#ef4444">Trend / smoothing</text>
+  <text x="260" y="610" font-family="Arial" font-size="20" fill="#0f172a">Time</text>
+  <text x="70" y="180" transform="rotate(-90 70 180)" font-family="Arial" font-size="20" fill="#0f172a">Value</text>
+</svg>
