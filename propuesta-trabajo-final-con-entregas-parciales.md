@@ -260,7 +260,7 @@ La idea es que el trabajo final no aparezca al final del curso como un producto 
 
 ### Entrega 1. Propuesta del proyecto
 
-Semana sugerida: `2`
+Semana sugerida: `3`
 
 Contenido:
 
@@ -291,7 +291,7 @@ Peso sugerido:
 
 ### Entrega 2. Perfilado, diccionario y limpieza inicial
 
-Semana sugerida: `4`
+Semana sugerida: `5`
 
 Contenido:
 
@@ -300,6 +300,7 @@ Contenido:
 - identificación de problemas de calidad
 - reglas de limpieza
 - bitácora inicial
+- modelado de datos
 
 Entregables:
 
@@ -318,11 +319,11 @@ Criterios mínimos de aprobación:
 
 Peso sugerido:
 
-- `15%`
+- `10%`
 
 ### Entrega 3. Análisis exploratorio y selección de gráficos
 
-Semana sugerida: `6`
+Semana sugerida: `7`
 
 Contenido:
 
@@ -347,11 +348,11 @@ Criterios mínimos de aprobación:
 
 Peso sugerido:
 
-- `15%`
+- `5%`
 
 ### Entrega 4. Modelado, métricas y dashboard alpha
 
-Semana sugerida: `8`
+Semana sugerida: `11`
 
 Contenido:
 
@@ -377,11 +378,11 @@ Criterios mínimos de aprobación:
 
 Peso sugerido:
 
-- `15%`
+- `10%`
 
 ### Entrega 5. Storytelling, accesibilidad y módulo temporal/comparativo
 
-Semana sugerida: `10`
+Semana sugerida: `13`
 
 Contenido:
 
@@ -409,9 +410,9 @@ Peso sugerido:
 
 - `15%`
 
-### Entrega 6. Componente avanzado y dashboard beta
+### Entrega 6. Trabajo final completo y defensa
 
-Semana sugerida: `12`
+Semana sugerida: `15`
 
 Contenido:
 
@@ -419,32 +420,6 @@ Contenido:
 - integración del resultado al análisis
 - documentación metodológica de la técnica
 - versión beta final del dashboard
-
-Entregables:
-
-- notebook avanzado
-- exportables para Tableau
-- vista avanzada integrada o anexa
-- dashboard beta
-
-Criterios mínimos de aprobación:
-
-- la técnica avanzada está correctamente explicada y justificada
-- se documentan variables usadas, parámetros y limitaciones
-- el resultado avanzado produce una lectura útil para el caso
-- la visualización derivada no se presenta como verdad absoluta, sino como apoyo exploratorio
-- el dashboard beta ya está en condiciones de pasar a QA final
-
-Peso sugerido:
-
-- `10%`
-
-### Entrega 7. Trabajo final completo y defensa
-
-Semana sugerida: `14`
-
-Contenido:
-
 - dashboard final
 - historia visual o secuencia de presentación
 - QA técnico
@@ -468,39 +443,7 @@ Criterios mínimos de aprobación:
 
 Peso sugerido:
 
-- `20%`
-
-## Pesos sugeridos del proyecto completo
-
-| Entrega | Descripción | Peso |
-|---|---|---:|
-| 1 | Propuesta del proyecto | 10% |
-| 2 | Perfilado y limpieza | 15% |
-| 3 | Exploración e insights iniciales | 15% |
-| 4 | Modelado, métricas y dashboard alpha | 15% |
-| 5 | Storytelling, accesibilidad y módulos analíticos | 15% |
-| 6 | Componente avanzado y dashboard beta | 10% |
-| 7 | Entrega final y defensa | 20% |
-
-## Ruta semanal sugerida de acompañamiento
-
-| Semana | Foco del curso | Hito del proyecto | Evidencia esperada |
-|---|---|---|---|
-| 1 | Introducción, herramienta y ecosistema | Exploración de ideas temáticas | Lista corta de `2` o `3` posibles temas |
-| 2 | Perfilado y granularidad | Entrega `1` | Propuesta aprobada |
-| 3 | Limpieza y preparación | Avance técnico de calidad | Primer notebook de limpieza |
-| 4 | Modelado y fuentes | Entrega `2` | Dataset limpio y diccionario |
-| 5 | Visualización exploratoria | Prototipado de vistas base | Hojas exploratorias iniciales |
-| 6 | Segmentación e insights | Entrega `3` | Workbook preliminar e insights |
-| 7 | Cálculos analíticos | Construcción de métricas | KPIs, porcentajes y comparativos |
-| 8 | Storytelling técnico | Entrega `4` | Dashboard alpha |
-| 9 | Accesibilidad y diseño | Rediseño visual y revisión | Checklist de accesibilidad |
-| 10 | Series temporales | Entrega `5` | Módulo temporal sólido |
-| 11 | Comparación transversal y mapas | Integración de comparación fuerte | Vista transversal o geográfica robusta |
-| 12 | `PCA` y `t-SNE` | Entrega `6` | Componente avanzado integrado |
-| 13 | Dashboard engineering y QA | Ensayo de defensa y cierre técnico | Dashboard casi final y QA |
-| 14 | Capstone y defensa | Entrega `7` | Producto final completo |
-
+- `15%`
 
 
 ## Relación directa con lo visto en clase
