@@ -1,0 +1,5 @@
+peru_district*_election_2021*.geojson
+peru_districts_election_2021_join_report.json
+!sample_*.geojson
+!.gitignore
+!.gitkeep
