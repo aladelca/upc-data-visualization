@@ -4,7 +4,7 @@ import { ColumnLayer, GeoJsonLayer } from "@deck.gl/layers";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-import { heightValue, integerFormatter, percentFormatter, winnerColor } from "./scales";
+import { heightValue, integerFormatter, percentFormatter, voteShareColor } from "./scales";
 import type {
   DistrictPointFeature,
   DistrictPolygonFeature,
@@ -99,7 +99,7 @@ export class ElectionMap {
       elevationScale: this.state.verticalScale,
       getPosition: (feature) => pointPosition(feature),
       getElevation: (feature) => heightValue(feature.properties, this.state.heightMetric),
-      getFillColor: (feature) => winnerColor(feature.properties.winner),
+      getFillColor: (feature) => voteShareColor(feature.properties),
       getLineColor: [22, 24, 29, 130],
       lineWidthMinPixels: 0.5,
       material: {
@@ -122,7 +122,7 @@ export class ElectionMap {
       pickable: true,
       elevationScale: this.state.verticalScale,
       getElevation: (feature) => heightValue(feature.properties, this.state.heightMetric),
-      getFillColor: (feature) => winnerColor(feature.properties.winner, 215),
+      getFillColor: (feature) => voteShareColor(feature.properties, 215),
       getLineColor: [246, 248, 250, 160],
       getLineWidth: 1,
       lineWidthUnits: "pixels",
@@ -166,6 +166,7 @@ function tooltip(feature: DistrictPointFeature | DistrictPolygonFeature | null |
         <dt>Fuerza Popular</dt><dd>${percentFormatter.format(properties.fuerza_popular_pct)}</dd>
         <dt>Margen</dt><dd>${percentFormatter.format(properties.margin_pct)} · ${integerFormatter.format(properties.margin_votes)}</dd>
         <dt>Votos validos</dt><dd>${integerFormatter.format(properties.valid_votes)}</dd>
+        <dt>Poblacion</dt><dd>${integerFormatter.format(properties.population_total)}</dd>
       </dl>
     `,
   };

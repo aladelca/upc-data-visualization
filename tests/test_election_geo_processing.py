@@ -1,6 +1,7 @@
 import pandas as pd
 import pytest
 
+from scripts.build_election_geojson import build_geojson, normalized_name
 from scripts.election_geo_processing import (
     FUERZA_POPULAR,
     PERU_LIBRE,
@@ -91,3 +92,66 @@ def test_approximate_centroid_uses_geometry_bounds() -> None:
     }
 
     assert approximate_centroid(geometry) == (-79.0, -11.0)
+
+
+def test_normalized_name_folds_accents_and_punctuation() -> None:
+    assert normalized_name("San Martín - Río Grande") == "SAN MARTIN RIO GRANDE"
+
+
+def test_build_geojson_adds_population_and_population_height() -> None:
+    results = aggregate_votes_by_district(
+        pd.DataFrame(
+            {
+                "UBIGEO": ["010101"],
+                "DEPARTAMENTO": ["AMAZONAS"],
+                "PROVINCIA": ["CHACHAPOYAS"],
+                "DISTRITO": ["CHACHAPOYAS"],
+                "DESCRIP_ESTADO_ACTA": ["CONTABILIZADA"],
+                "VOTOS_P1": [60],
+                "VOTOS_P2": [40],
+            }
+        )
+    )
+    districts = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [[[-78.0, -6.0], [-77.0, -6.0], [-77.0, -5.0], [-78.0, -5.0]]],
+                },
+                "properties": {
+                    "ubigeo": "010101",
+                    "ccdd": "01",
+                    "nombdist": "CHACHAPOYAS",
+                },
+            }
+        ],
+    }
+    population = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "properties": {
+                    "ubigeo": "010101",
+                    "nombdep": "Amazonas",
+                    "nombdist": "Chachapoyas",
+                    "pobtotal": 32000,
+                },
+            }
+        ],
+    }
+
+    polygons, centroids, report = build_geojson(districts, results, population)
+
+    polygon_properties = polygons["features"][0]["properties"]
+    centroid_properties = centroids["features"][0]["properties"]
+    assert polygon_properties["population_total"] == 32000
+    assert polygon_properties["population_join_status"] == "population_by_ubigeo"
+    assert polygon_properties["height_log_population"] > 0
+    assert (
+        centroid_properties["height_log_population"] == polygon_properties["height_log_population"]
+    )
+    assert report["population_matched_features"] == 1

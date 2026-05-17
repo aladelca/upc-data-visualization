@@ -2,7 +2,7 @@ import type { Feature, FeatureCollection, MultiPolygon, Point, Polygon } from "g
 
 export type Winner = "peru_libre" | "fuerza_popular" | "EMPATE" | "missing";
 
-export type HeightMetric = "margin" | "validVotes" | "marginVotes";
+export type HeightMetric = "population";
 
 export type LayerMode = "columns" | "extruded";
 
@@ -34,6 +34,9 @@ export type DistrictProperties = {
   height_margin: number;
   height_log_valid_votes: number;
   height_log_margin_votes: number;
+  population_total: number;
+  height_log_population: number;
+  population_join_status: "population_by_ubigeo" | "population_by_name" | "missing_population";
   join_status: "matched" | "matched_by_name" | "missing_results";
 };
 

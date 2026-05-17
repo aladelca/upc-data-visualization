@@ -3,8 +3,10 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import math
 import shutil
 import sys
+import unicodedata
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any, cast
@@ -60,6 +62,13 @@ DEFAULT_DISTRICTS_WFS_URL = (
     "outputFormat=application%2Fjson"
 )
 
+DEFAULT_POPULATION_WFS_URL = (
+    "https://geoespacial.inei.gob.pe/geoserver/Interoperabilidad/ows?"
+    "service=WFS&version=1.0.0&request=GetFeature&"
+    "typeName=Interoperabilidad%3Aig_pobtotal_dist&maxFeatures=5000&"
+    "outputFormat=application%2Fjson"
+)
+
 OUTPUT_POLYGONS = "peru_districts_election_2021.geojson"
 OUTPUT_CENTROIDS = "peru_district_centroids_election_2021.geojson"
 OUTPUT_REPORT = "peru_districts_election_2021_join_report.json"
@@ -71,6 +80,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--onpe", required=True, type=Path)
     parser.add_argument("--districts", default=DEFAULT_DISTRICTS_WFS_URL)
+    parser.add_argument("--population", default=DEFAULT_POPULATION_WFS_URL)
     parser.add_argument("--out", default="data/processed", type=Path)
     parser.add_argument("--public-out", type=Path)
     parser.add_argument(
@@ -148,6 +158,9 @@ def empty_result_properties(ubigeo: str, geo_properties: dict[str, Any]) -> dict
         "height_margin": 0,
         "height_log_valid_votes": 0,
         "height_log_margin_votes": 0,
+        "population_total": 0,
+        "height_log_population": 0,
+        "population_join_status": "missing_population",
         "join_status": "missing_results",
     }
 
@@ -158,9 +171,13 @@ def result_properties(
     geo_properties: dict[str, Any],
     *,
     join_status: str,
+    population: dict[str, Any] | None,
+    population_join_status: str,
 ) -> dict[str, Any]:
     if row is None:
-        return empty_result_properties(geo_ubigeo, geo_properties)
+        properties = empty_result_properties(geo_ubigeo, geo_properties)
+        apply_population(properties, population, population_join_status)
+        return properties
 
     properties = {
         "ubigeo": row["ubigeo"],
@@ -188,14 +205,23 @@ def result_properties(
         "height_margin": row["height_margin"],
         "height_log_valid_votes": row["height_log_valid_votes"],
         "height_log_margin_votes": row["height_log_margin_votes"],
+        "population_total": 0,
+        "height_log_population": 0,
+        "population_join_status": "missing_population",
         "join_status": join_status,
     }
+    apply_population(properties, population, population_join_status)
     return {key: json_ready(value) for key, value in properties.items()}
 
 
 def normalized_name(value: object) -> str:
-    text = str(value).strip().upper()
-    return " ".join(text.split())
+    decomposed = unicodedata.normalize("NFKD", str(value).strip().upper())
+    ascii_text = "".join(
+        character for character in decomposed if not unicodedata.combining(character)
+    )
+    return " ".join(
+        "".join(character if character.isalnum() else " " for character in ascii_text).split()
+    )
 
 
 def unique_department_district_index(
@@ -215,19 +241,93 @@ def geo_department_name(properties: dict[str, Any]) -> str:
     return DEPARTMENT_NAMES.get(code, "")
 
 
+def safe_int(value: object) -> int:
+    converted = pd.to_numeric(value, errors="coerce")
+    if pd.isna(converted):
+        return 0
+    return int(converted)
+
+
+def population_record(feature: Mapping[str, Any]) -> dict[str, Any]:
+    properties = dict(feature.get("properties", {}))
+    return {
+        "ubigeo": feature_ubigeo(properties),
+        "department": normalized_name(properties.get("nombdep") or geo_department_name(properties)),
+        "district": normalized_name(properties.get("nombdist", "")),
+        "population_total": safe_int(properties.get("pobtotal", 0)),
+    }
+
+
+def unique_population_name_index(
+    records: list[dict[str, Any]],
+) -> dict[tuple[str, str], dict[str, Any]]:
+    buckets: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for record in records:
+        key = (str(record["department"]), str(record["district"]))
+        buckets.setdefault(key, []).append(record)
+    return {key: rows[0] for key, rows in buckets.items() if len(rows) == 1}
+
+
+def apply_population(
+    properties: dict[str, Any],
+    population: dict[str, Any] | None,
+    population_join_status: str,
+) -> None:
+    if population is None:
+        properties["population_total"] = 0
+        properties["height_log_population"] = 0
+        properties["population_join_status"] = "missing_population"
+        return
+
+    population_total = safe_int(population["population_total"])
+    properties["population_total"] = population_total
+    properties["height_log_population"] = population_total
+    properties["population_join_status"] = population_join_status
+
+
+def scale_population_heights(features: list[dict[str, Any]], *, min_height: int = 500) -> None:
+    populations = [
+        safe_int(feature["properties"].get("population_total", 0))
+        for feature in features
+        if safe_int(feature["properties"].get("population_total", 0)) > 0
+    ]
+    if not populations:
+        return
+
+    max_population = max(populations)
+    population_height = 100000
+    for feature in features:
+        properties = feature["properties"]
+        population_total = safe_int(properties.get("population_total", 0))
+        properties["height_log_population"] = (
+            min_height
+            + math.log1p(population_total) / math.log1p(max_population) * population_height
+            if population_total > 0
+            else 0
+        )
+
+
 def build_geojson(
     districts_geojson: dict[str, Any],
     results: pd.DataFrame,
+    population_geojson: dict[str, Any],
 ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     result_records = results.to_dict(orient="records")
     result_by_ubigeo = {str(record["ubigeo"]): record for record in result_records}
     result_by_name = unique_department_district_index(results)
+    population_records = [
+        population_record(feature) for feature in population_geojson.get("features", [])
+    ]
+    population_by_ubigeo = {str(record["ubigeo"]): record for record in population_records}
+    population_by_name = unique_population_name_index(population_records)
     geo_ubigeos: list[str] = []
     polygon_features: list[dict[str, Any]] = []
     centroid_features: list[dict[str, Any]] = []
     matched_result_ubigeos: set[str] = set()
     matched_by_ubigeo = 0
     matched_by_name = 0
+    population_by_ubigeo_count = 0
+    population_by_name_count = 0
 
     for original_feature in districts_geojson.get("features", []):
         feature = copy.deepcopy(original_feature)
@@ -244,6 +344,24 @@ def build_geojson(
             row = result_by_name.get(key)
             join_status = "matched_by_name" if row is not None else "missing_results"
 
+        population = population_by_ubigeo.get(ubigeo)
+        population_join_status = "population_by_ubigeo"
+        if population is None:
+            population_key = (
+                normalized_name(geo_department_name(geo_properties)),
+                normalized_name(geo_properties.get("nombdist", "")),
+            )
+            population = population_by_name.get(population_key)
+            population_join_status = (
+                "population_by_name" if population is not None else "missing_population"
+            )
+
+        if population is not None:
+            if population_join_status == "population_by_name":
+                population_by_name_count += 1
+            else:
+                population_by_ubigeo_count += 1
+
         if row is not None:
             matched_result_ubigeos.add(str(row["ubigeo"]))
             if join_status == "matched_by_name":
@@ -256,6 +374,8 @@ def build_geojson(
             row,
             geo_properties,
             join_status=join_status,
+            population=population,
+            population_join_status=population_join_status,
         )
 
         feature["properties"] = properties
@@ -270,6 +390,9 @@ def build_geojson(
             }
         )
 
+    scale_population_heights(polygon_features)
+    scale_population_heights(centroid_features)
+
     report: dict[str, Any] = dict(validate_geo_join(results["ubigeo"], geo_ubigeos))
     report["matched_features"] = matched_by_ubigeo + matched_by_name
     report["matched_by_ubigeo"] = matched_by_ubigeo
@@ -277,6 +400,13 @@ def build_geojson(
     report["unmatched_geo_features"] = len(geo_ubigeos) - report["matched_features"]
     report["unmatched_result_rows_after_name_fallback"] = len(set(results["ubigeo"])) - len(
         matched_result_ubigeos
+    )
+    report["population_features"] = len(population_records)
+    report["population_matched_features"] = population_by_ubigeo_count + population_by_name_count
+    report["population_matched_by_ubigeo"] = population_by_ubigeo_count
+    report["population_matched_by_name"] = population_by_name_count
+    report["population_unmatched_geo_features"] = (
+        len(geo_ubigeos) - report["population_matched_features"]
     )
     return (
         {"type": "FeatureCollection", "features": polygon_features},
@@ -308,7 +438,8 @@ def main() -> None:
     counted_status = args.counted_status or ["CONTABILIZADA", "COMPUTADA RESUELTA"]
     results = aggregate_votes_by_district(onpe, counted_status=counted_status)
     districts = read_geojson(str(args.districts))
-    polygons, centroids, report = build_geojson(districts, results)
+    population = read_geojson(str(args.population))
+    polygons, centroids, report = build_geojson(districts, results, population)
 
     if not args.skip_polygons:
         write_json(args.out / OUTPUT_POLYGONS, polygons)
@@ -323,6 +454,12 @@ def main() -> None:
         f"{report['matched_features']}/{report['geo_rows']} geo features matched "
         f"({report['matched_by_ubigeo']} by ubigeo, {report['matched_by_name']} by name). "
         f"{report['unmatched_geo_features']} geo features remain unmatched."
+    )
+    print(
+        "Joined population: "
+        f"{report['population_matched_features']}/{report['geo_rows']} geo features matched "
+        f"({report['population_matched_by_ubigeo']} by ubigeo, "
+        f"{report['population_matched_by_name']} by name)."
     )
     print(f"Parties: {PERU_LIBRE} / {FUERZA_POPULAR}; tie label: {TIE}")
 

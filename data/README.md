@@ -11,6 +11,9 @@ Esta carpeta separa fuentes originales (`raw/`) de artefactos generados (`proces
 - INEI IDE: capa distrital `Interoperabilidad:ig_distrito`.
   - WFS: `https://geoespacial.inei.gob.pe/geoserver/Interoperabilidad/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Interoperabilidad%3Aig_distrito&maxFeatures=5000&outputFormat=application%2Fjson`
   - Descarga alternativa: `https://ide.inei.gob.pe/files/Distrito.rar`
+- INEI IDE: poblacion total distrital `Interoperabilidad:ig_pobtotal_dist`.
+  - WFS: `https://geoespacial.inei.gob.pe/geoserver/Interoperabilidad/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Interoperabilidad%3Aig_pobtotal_dist&maxFeatures=5000&outputFormat=application%2Fjson`
+  - Fuente declarada por la capa: `INEI - CPV2017 RESULTADOS`.
 
 ## Convenciones
 
@@ -22,10 +25,11 @@ Esta carpeta separa fuentes originales (`raw/`) de artefactos generados (`proces
 ## Flujo recomendado
 
 ```bash
-python3 scripts/download_election_sources.py --include-districts
+python3 scripts/download_election_sources.py --include-districts --include-population
 python3 scripts/build_election_geojson.py \
   --onpe data/raw/onpe_segunda_vuelta_2021.zip \
   --districts data/raw/inei_distritos_2023.geojson \
+  --population data/raw/inei_poblacion_distrital_2017.geojson \
   --out data/processed \
   --public-out apps/peru-election-3d-map/public/data
 ```

@@ -1,1 +1,81 @@
-{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-77.16,-12.23],[-76.9,-12.23],[-76.9,-12.01],[-77.16,-12.01],[-77.16,-12.23]]]},"properties":{"ubigeo":"150122","department":"LIMA","province":"LIMA","district":"MIRAFLORES","winner":"fuerza_popular","winner_party":"FUERZA POPULAR","votes_peru_libre":15420,"votes_fuerza_popular":63880,"blank_votes":910,"null_votes":1550,"challenged_votes":0,"citizens_voted":81760,"eligible_voters":93600,"polling_tables":312,"valid_votes":79300,"total_votes":81760,"peru_libre_pct":0.1945,"fuerza_popular_pct":0.8055,"margin_votes":48460,"margin_pct":0.6111,"turnout_pct":0.8735,"height_margin":37166,"height_log_valid_votes":80000,"height_log_margin_votes":74000,"join_status":"matched"}},{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-71.78,-13.78],[-71.34,-13.78],[-71.34,-13.44],[-71.78,-13.44],[-71.78,-13.78]]]},"properties":{"ubigeo":"080404","department":"CUSCO","province":"QUISPICANCHI","district":"CCATCA","winner":"peru_libre","winner_party":"PARTIDO POLITICO NACIONAL PERU LIBRE","votes_peru_libre":5650,"votes_fuerza_popular":480,"blank_votes":180,"null_votes":420,"challenged_votes":0,"citizens_voted":6730,"eligible_voters":8120,"polling_tables":31,"valid_votes":6130,"total_votes":6730,"peru_libre_pct":0.9217,"fuerza_popular_pct":0.0783,"margin_votes":5170,"margin_pct":0.8434,"turnout_pct":0.8288,"height_margin":51104,"height_log_valid_votes":61000,"height_log_margin_votes":51500,"join_status":"matched"}},{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-80.84,-5.4],[-80.42,-5.4],[-80.42,-5.0],[-80.84,-5.0],[-80.84,-5.4]]]},"properties":{"ubigeo":"200101","department":"PIURA","province":"PIURA","district":"PIURA","winner":"fuerza_popular","winner_party":"FUERZA POPULAR","votes_peru_libre":38920,"votes_fuerza_popular":72480,"blank_votes":2100,"null_votes":4350,"challenged_votes":0,"citizens_voted":117850,"eligible_voters":139200,"polling_tables":446,"valid_votes":111400,"total_votes":117850,"peru_libre_pct":0.3494,"fuerza_popular_pct":0.6506,"margin_votes":33560,"margin_pct":0.3013,"turnout_pct":0.8466,"height_margin":18578,"height_log_valid_votes":84000,"height_log_margin_votes":70000,"join_status":"matched"}},{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-70.24,-16.04],[-69.8,-16.04],[-69.8,-15.64],[-70.24,-15.64],[-70.24,-16.04]]]},"properties":{"ubigeo":"210101","department":"PUNO","province":"PUNO","district":"PUNO","winner":"peru_libre","winner_party":"PARTIDO POLITICO NACIONAL PERU LIBRE","votes_peru_libre":62310,"votes_fuerza_popular":8100,"blank_votes":1400,"null_votes":6100,"challenged_votes":0,"citizens_voted":77910,"eligible_voters":92050,"polling_tables":320,"valid_votes":70410,"total_votes":77910,"peru_libre_pct":0.885,"fuerza_popular_pct":0.115,"margin_votes":54210,"margin_pct":0.7699,"turnout_pct":0.8464,"height_margin":46694,"height_log_valid_votes":79000,"height_log_margin_votes":76000,"join_status":"matched"}},{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-78.08,-6.44],[-77.66,-6.44],[-77.66,-6.04],[-78.08,-6.04],[-78.08,-6.44]]]},"properties":{"ubigeo":"010101","department":"AMAZONAS","province":"CHACHAPOYAS","district":"CHACHAPOYAS","winner":"peru_libre","winner_party":"PARTIDO POLITICO NACIONAL PERU LIBRE","votes_peru_libre":8750,"votes_fuerza_popular":6320,"blank_votes":230,"null_votes":790,"challenged_votes":0,"citizens_voted":16090,"eligible_voters":19880,"polling_tables":76,"valid_votes":15070,"total_votes":16090,"peru_libre_pct":0.5806,"fuerza_popular_pct":0.4194,"margin_votes":2430,"margin_pct":0.1612,"turnout_pct":0.8094,"height_margin":10172,"height_log_valid_votes":66000,"height_log_margin_votes":42000,"join_status":"matched"}},{"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[-73.46,-3.96],[-73.04,-3.96],[-73.04,-3.54],[-73.46,-3.54],[-73.46,-3.96]]]},"properties":{"ubigeo":"160101","department":"LORETO","province":"MAYNAS","district":"IQUITOS","winner":"peru_libre","winner_party":"PARTIDO POLITICO NACIONAL PERU LIBRE","votes_peru_libre":41800,"votes_fuerza_popular":39200,"blank_votes":1200,"null_votes":3500,"challenged_votes":0,"citizens_voted":85700,"eligible_voters":103000,"polling_tables":382,"valid_votes":81000,"total_votes":85700,"peru_libre_pct":0.516,"fuerza_popular_pct":0.484,"margin_votes":2600,"margin_pct":0.0321,"turnout_pct":0.8311,"height_margin":2426,"height_log_valid_votes":80500,"height_log_margin_votes":42800,"join_status":"matched"}}]}
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-77.16, -12.23], [-76.9, -12.23], [-76.9, -12.01], [-77.16, -12.01], [-77.16, -12.23]]]
+      },
+      "properties": {
+        "ubigeo": "150122",
+        "geo_ubigeo": "150122",
+        "department": "LIMA",
+        "province": "LIMA",
+        "district": "MIRAFLORES",
+        "winner": "fuerza_popular",
+        "winner_party": "FUERZA POPULAR",
+        "votes_peru_libre": 15420,
+        "votes_fuerza_popular": 63880,
+        "blank_votes": 910,
+        "null_votes": 1550,
+        "challenged_votes": 0,
+        "citizens_voted": 81760,
+        "eligible_voters": 93600,
+        "polling_tables": 312,
+        "valid_votes": 79300,
+        "total_votes": 81760,
+        "peru_libre_pct": 0.1945,
+        "fuerza_popular_pct": 0.8055,
+        "margin_votes": 48460,
+        "margin_pct": 0.6111,
+        "turnout_pct": 0.8735,
+        "height_margin": 37166,
+        "height_log_valid_votes": 80000,
+        "height_log_margin_votes": 74000,
+        "population_total": 99337,
+        "height_log_population": 83000,
+        "population_join_status": "population_by_ubigeo",
+        "join_status": "matched"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[-71.78, -13.78], [-71.34, -13.78], [-71.34, -13.44], [-71.78, -13.44], [-71.78, -13.78]]]
+      },
+      "properties": {
+        "ubigeo": "080404",
+        "geo_ubigeo": "080404",
+        "department": "CUSCO",
+        "province": "QUISPICANCHI",
+        "district": "CCATCA",
+        "winner": "peru_libre",
+        "winner_party": "PARTIDO POLITICO NACIONAL PERU LIBRE",
+        "votes_peru_libre": 5650,
+        "votes_fuerza_popular": 480,
+        "blank_votes": 180,
+        "null_votes": 420,
+        "challenged_votes": 0,
+        "citizens_voted": 6730,
+        "eligible_voters": 8120,
+        "polling_tables": 31,
+        "valid_votes": 6130,
+        "total_votes": 6730,
+        "peru_libre_pct": 0.9217,
+        "fuerza_popular_pct": 0.0783,
+        "margin_votes": 5170,
+        "margin_pct": 0.8434,
+        "turnout_pct": 0.8288,
+        "height_margin": 51104,
+        "height_log_valid_votes": 61000,
+        "height_log_margin_votes": 51500,
+        "population_total": 15435,
+        "height_log_population": 69000,
+        "population_join_status": "population_by_ubigeo",
+        "join_status": "matched"
+      }
+    }
+  ]
+}

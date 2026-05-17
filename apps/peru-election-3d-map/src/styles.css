@@ -124,7 +124,7 @@ button:hover {
 .legend > div {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .swatch {
@@ -136,11 +136,19 @@ button:hover {
 }
 
 .swatch-red {
-  background: rgb(190 38 45);
+  background: rgb(172 28 42);
+}
+
+.swatch-red-light {
+  background: rgb(250 214 210);
 }
 
 .swatch-orange {
-  background: rgb(232 132 45);
+  background: rgb(221 113 32);
+}
+
+.swatch-orange-light {
+  background: rgb(252 225 190);
 }
 
 .swatch-gray {

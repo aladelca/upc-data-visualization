@@ -28,6 +28,12 @@ INEI_DISTRICTS_WFS_URL = (
     "typeName=Interoperabilidad%3Aig_distrito&maxFeatures=5000&"
     "outputFormat=application%2Fjson"
 )
+INEI_POPULATION_WFS_URL = (
+    "https://geoespacial.inei.gob.pe/geoserver/Interoperabilidad/ows?"
+    "service=WFS&version=1.0.0&request=GetFeature&"
+    "typeName=Interoperabilidad%3Aig_pobtotal_dist&maxFeatures=5000&"
+    "outputFormat=application%2Fjson"
+)
 
 
 def download(url: str, target: Path, *, overwrite: bool) -> None:
@@ -43,6 +49,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--out", default="data/raw", type=Path)
     parser.add_argument("--include-districts", action="store_true")
+    parser.add_argument("--include-population", action="store_true")
     parser.add_argument("--overwrite", action="store_true")
     return parser.parse_args()
 
@@ -58,6 +65,10 @@ def main() -> None:
     ]
     if args.include_districts:
         resources.append((INEI_DISTRICTS_WFS_URL, args.out / "inei_distritos_2023.geojson"))
+    if args.include_population:
+        resources.append(
+            (INEI_POPULATION_WFS_URL, args.out / "inei_poblacion_distrital_2017.geojson")
+        )
 
     manifest_resources: list[dict[str, str | int]] = []
     manifest = {

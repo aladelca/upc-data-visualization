@@ -11,7 +11,7 @@ import type {
 
 const initialState: VisualizationState = {
   layerMode: "columns",
-  heightMetric: "margin",
+  heightMetric: "population",
   theme: "light",
   verticalScale: 1,
 };
