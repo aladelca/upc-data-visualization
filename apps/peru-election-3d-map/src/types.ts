@@ -48,7 +48,7 @@ export type DistrictPolygonCollection = FeatureCollection<Polygon | MultiPolygon
 
 export type ElectionData = {
   centroids: DistrictPointCollection;
-  districts: DistrictPolygonCollection;
+  districts?: DistrictPolygonCollection;
   isSample: boolean;
 };
 

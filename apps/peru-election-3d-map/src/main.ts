@@ -40,17 +40,24 @@ async function loadCollection<T>(primary: string, sample: string): Promise<{data
   return {data: (await sampleResponse.json()) as T, isSample: true};
 }
 
-async function loadElectionData(): Promise<ElectionData> {
-  const [centroids, districts] = await Promise.all([
-    loadCollection<DistrictPointCollection>(DATA_URLS.centroids.primary, DATA_URLS.centroids.sample),
-    loadCollection<DistrictPolygonCollection>(DATA_URLS.districts.primary, DATA_URLS.districts.sample),
-  ]);
+function statusMessage(districtCount: number, isSample: boolean): string {
+  return isSample
+    ? "Muestra de demostracion. Ejecuta el pipeline para cargar todos los distritos."
+    : `${districtCount} distritos cargados desde datos procesados.`;
+}
 
-  return {
-    centroids: centroids.data,
-    districts: districts.data,
-    isSample: centroids.isSample || districts.isSample,
-  };
+async function loadCentroids(): Promise<{data: DistrictPointCollection; isSample: boolean}> {
+  return loadCollection<DistrictPointCollection>(
+    DATA_URLS.centroids.primary,
+    DATA_URLS.centroids.sample,
+  );
+}
+
+async function loadDistricts(): Promise<{data: DistrictPolygonCollection; isSample: boolean}> {
+  return loadCollection<DistrictPolygonCollection>(
+    DATA_URLS.districts.primary,
+    DATA_URLS.districts.sample,
+  );
 }
 
 async function main(): Promise<void> {
@@ -60,21 +67,68 @@ async function main(): Promise<void> {
   }
 
   const controls = readControls();
-  const data = await loadElectionData();
+  const centroids = await loadCentroids();
+  let isSample = centroids.isSample;
+  const data: ElectionData = {
+    centroids: centroids.data,
+    isSample,
+  };
   const map = new ElectionMap(mapContainer, data, initialState);
+  let loadingDistricts: Promise<boolean> | null = null;
+  let latestState = initialState;
+
+  const ensureDistricts = (): Promise<boolean> => {
+    if (map.hasDistricts()) {
+      return Promise.resolve(true);
+    }
+    if (loadingDistricts !== null) {
+      return loadingDistricts;
+    }
+
+    setStatus(controls.status, "Cargando poligonos distritales...");
+    loadingDistricts = loadDistricts()
+      .then((districts) => {
+        isSample = isSample || districts.isSample;
+        map.setDistricts(districts.data, districts.isSample);
+        setStatus(
+          controls.status,
+          statusMessage(centroids.data.features.length, isSample),
+          isSample,
+        );
+        return true;
+      })
+      .catch((error: unknown) => {
+        const message =
+          error instanceof Error ? error.message : "No se pudieron cargar los poligonos distritales";
+        setStatus(controls.status, message, true);
+        return false;
+      })
+      .finally(() => {
+        loadingDistricts = null;
+      });
+    return loadingDistricts;
+  };
+
+  const handleStateChange = async (state: VisualizationState): Promise<void> => {
+    latestState = state;
+    if (state.layerMode === "extruded") {
+      const loaded = await ensureDistricts();
+      if (!loaded || latestState !== state) {
+        map.update(latestState);
+        return;
+      }
+    }
+    map.update(state);
+  };
 
   bindControls(controls, initialState, {
-    onChange: (state) => map.update(state),
+    onChange: (state) => {
+      void handleStateChange(state);
+    },
     onFit: () => map.fitToPeru(),
   });
 
-  setStatus(
-    controls.status,
-    data.isSample
-      ? "Muestra de demostracion. Ejecuta el pipeline para cargar todos los distritos."
-      : `${data.centroids.features.length} distritos cargados desde datos procesados.`,
-    data.isSample,
-  );
+  setStatus(controls.status, statusMessage(centroids.data.features.length, isSample), isSample);
 }
 
 main().catch((error: unknown) => {

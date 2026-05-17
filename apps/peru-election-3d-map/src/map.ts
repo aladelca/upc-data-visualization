@@ -7,6 +7,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { heightValue, integerFormatter, percentFormatter, voteShareColor } from "./scales";
 import type {
   DistrictPointFeature,
+  DistrictPolygonCollection,
   DistrictPolygonFeature,
   DistrictProperties,
   ElectionData,
@@ -24,7 +25,7 @@ export class ElectionMap {
   private state: VisualizationState;
   private loaded = false;
 
-  constructor(container: HTMLElement, private readonly data: ElectionData, state: VisualizationState) {
+  constructor(container: HTMLElement, private data: ElectionData, state: VisualizationState) {
     this.state = state;
     this.map = new maplibregl.Map({
       container,
@@ -64,6 +65,21 @@ export class ElectionMap {
     if (themeChanged) {
       this.map.setStyle(state.theme === "light" ? LIGHT_STYLE : DARK_STYLE);
     }
+    if (this.loaded) {
+      this.render();
+    }
+  }
+
+  hasDistricts(): boolean {
+    return this.data.districts !== undefined;
+  }
+
+  setDistricts(districts: DistrictPolygonCollection, isSample: boolean): void {
+    this.data = {
+      ...this.data,
+      districts,
+      isSample: this.data.isSample || isSample,
+    };
     if (this.loaded) {
       this.render();
     }
@@ -114,7 +130,7 @@ export class ElectionMap {
   private extrudedDistrictLayer(): GeoJsonLayer<DistrictProperties> {
     return new GeoJsonLayer<DistrictProperties>({
       id: "district-result-polygons",
-      data: this.data.districts.features,
+      data: this.data.districts?.features ?? [],
       extruded: true,
       filled: true,
       stroked: true,
