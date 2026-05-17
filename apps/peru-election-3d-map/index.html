@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mapa 3D de resultados distritales de la segunda vuelta presidencial Peru 2021."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Mapa electoral 3D Peru 2021</title>
+  </head>
+  <body>
+    <main id="app-shell">
+      <div id="map" aria-label="Mapa 3D de resultados electorales por distrito"></div>
+
+      <aside class="panel" aria-label="Controles del mapa">
+        <div>
+          <p class="eyebrow">Segunda vuelta presidencial</p>
+          <h1>Peru 2021</h1>
+        </div>
+
+        <label>
+          Capa
+          <select id="layer-mode">
+            <option value="columns">Columnas</option>
+            <option value="extruded">Distritos 3D</option>
+          </select>
+        </label>
+
+        <label>
+          Altura
+          <select id="height-metric">
+            <option value="population">Poblacion CPV2017</option>
+          </select>
+        </label>
+
+        <label>
+          Escala
+          <input id="vertical-scale" type="range" min="0.4" max="2.4" value="1" step="0.1" />
+        </label>
+
+        <div class="button-row">
+          <button id="fit-map" type="button">Centrar</button>
+          <button id="theme-toggle" type="button">Modo oscuro</button>
+        </div>
+
+        <div class="legend" aria-label="Leyenda">
+          <div><span class="swatch swatch-red-light"></span><span class="swatch swatch-red"></span>Peru Libre: 50% a 100%</div>
+          <div><span class="swatch swatch-orange-light"></span><span class="swatch swatch-orange"></span>Fuerza Popular: 50% a 100%</div>
+          <div><span class="swatch swatch-gray"></span>Empate / sin dato</div>
+        </div>
+
+        <p id="data-status" class="status" role="status">Cargando datos...</p>
+      </aside>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
